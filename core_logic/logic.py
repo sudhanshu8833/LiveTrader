@@ -4,7 +4,7 @@ import dotenv
 import os
 dotenv.load_dotenv()
 
-class LogicClass:
+class LiveTrader:
     def __init__(self):
         self.current_position = None
 
@@ -13,6 +13,7 @@ class LogicClass:
 
 if __name__ == "__main__":
     data_provider_broker = BinanceBroker(os.getenv("BINANCE_API_KEY"), os.getenv("BINANCE_API_SECRET"))
-    logic_class_instance = LogicClass()
-    data_provider_instance = BacktestDataProvider(live_trading = False, broker_instance = data_provider_broker, logic_instance = logic_class_instance)
+    logic_class_instance = LiveTrader()
+    # data_provider_instance = BacktestDataProvider(broker_instance = data_provider_broker, logic_instance = logic_class_instance)
+    data_provider_instance = LiveDataProvider(broker_instance = data_provider_broker, logic_instance = logic_class_instance)
     data_provider_instance.start_data_feed()

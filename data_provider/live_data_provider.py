@@ -1,11 +1,16 @@
 from data_provider.base_data_provider import BaseDataProvider
 
 class LiveDataProvider(BaseDataProvider):
-    def __init__(self, broker_instance):
-        super().__init__(live_trading=True)
+    def __init__(self, broker_instance = None, logic_instance = None):
+        super().__init__()
+
+        self.broker = broker_instance
+        self.logic = logic_instance
+        self.data = self.broker.get_historical_data()
+        self.current_index = 0
 
     def start_data_feed(self):
-        """Simulate listening to a live data stream and trigger events"""
-        while True:
-            new_data = self.data_stream.get_next_tick()
-            self.on_new_data(new_data)
+        if self.broker.KLINE_STREAM:
+            self.broker.subscribe_to_kline_stream(callback = self.logic.next_candle)
+        else:
+            pass

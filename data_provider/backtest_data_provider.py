@@ -1,10 +1,9 @@
 from data_provider.base_data_provider import BaseDataProvider
 
 class BacktestDataProvider(BaseDataProvider):
-    def __init__(self, live_trading, broker_instance = None, logic_instance = None):
+    def __init__(self, broker_instance = None, logic_instance = None):
         super().__init__()
 
-        self.live_trading = live_trading
         self.broker = broker_instance
         self.logic = logic_instance
         self.data = self.broker.get_historical_data()
