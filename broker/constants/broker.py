@@ -1,5 +1,6 @@
-class Broker:
+class BrokerConstants:
     REST_CREATE_ORDER = 'CreateOrder'
+    REST_CREATE_OCO_ORDER = 'CreateOCOOrder'
     REST_GET_ORDER_STATUS = 'GetOrderStatus'
     REST_GET_ORDER_BOOK = 'GetOrderBook'
     REST_GET_TRADES_BOOK = 'GetTradesBook'
@@ -9,10 +10,30 @@ class Broker:
     REST_GET_LTP_PRICE = 'GetLtpPrice'
     REST_GET_DEPTH = 'GetDepth'
     REST_GET_KLINES = 'GetKlines'
-    REST_GET_PRICE_QUANTITY_PRECISION = 'GetPriceQuantityPrecision'
+    GET_EXCHANGE_INFO = 'GetExchangeInfo'
     REST_SET_LEVERAGE = 'SetLeverage'
     REST_SET_MARGIN_MODE = 'SetMarginMode'
-    REST_GET_USER_DATA = 'GetUserData'
+    REST_GET_ACCOUNT_INFO = 'GetUserAccountInfo'
+
+    TIMEFRAME_1m = '1m'
+    TIMEFRAME_5m = '5m'
+    TIMEFRAME_15m = '15m'
+    TIMEFRAME_30m = '30m'
+    TIMEFRAME_1H = '1h'
+    TIMEFRAME_4H = '4h'
+    TIMEFRAME_1D = '1d'
+    TIMEFRAME_1W = '1w'
+    TIMEFRAME_1M = '1M'
+
+    STATUS_OPEN = 'OPEN'
+    STATUS_PARTIALLY_FILLED = 'PARTIALLY_FILLED'
+    STATUS_FILLED = 'FILLED'
+    STATUS_CANCELLED = 'CANCELED'
 
 
-    
+    # METHODS
+    GET = 'GET'
+    POST = 'POST'
+    DELETE = 'DELETE'
+    PUT = 'PUT'
+    PATCH = 'PATCH'
